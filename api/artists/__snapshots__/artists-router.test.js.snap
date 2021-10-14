@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[POST] /api/artist responds with the newly created artist 1`] = `
+Object {
+  "artist_id": 5,
+  "artist_name": "Kid Cudi",
+}
+`;
