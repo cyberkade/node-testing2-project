@@ -11,7 +11,7 @@ function get() {
 }
 
 function getById(id) {
-  return db("songs").where("id", id).first();
+  return db("songs").where("song_id", id).first();
 }
 
 async function insert(song) {

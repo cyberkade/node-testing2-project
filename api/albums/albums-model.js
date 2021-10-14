@@ -6,11 +6,11 @@ function get() {
   // join songs as s where s.album_id = al.album_id
   return db("artists as ar")
     .join("albums as al", "al.artist_id", "ar.artist_id")
-    .select("ar.*", "album_title");
+    .select("ar.artist_name", "album_title", "al.album_id");
 }
 
 function getById(id) {
-  return db("albums").where("id", id).first();
+  return db("albums").where("album_id", id).first();
 }
 
 async function insert(album) {
@@ -18,8 +18,13 @@ async function insert(album) {
   return getById(id);
 }
 
+function remove(id) {
+  return db("albums").where("album_id", id).del();
+}
+
 module.exports = {
   get,
   getById,
   insert,
+  remove,
 };
