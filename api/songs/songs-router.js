@@ -12,18 +12,13 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-// router.post('/', async (req, res, next)=> {
-//     try {
-//         const newProject = await Projects.insert(req.body)
-//         if(newProject[0].project_completed === 0) {
-//             res.status(201).json({...newProject[0], project_completed: false})
-//         } else if(newProject[0].project_completed === 1) {
-//             res.status(201).json({...newProject[0], project_completed: true})
-//         }
-//     }
-//     catch (err) {
-//         next(err)
-//     }
-// })
+router.post("/", async (req, res, next) => {
+  try {
+    const newSong = await Songs.insert(req.body);
+    res.status(201).json(newSong);
+  } catch (err) {
+    next(err);
+  }
+});
 
 module.exports = router;

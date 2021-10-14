@@ -7,7 +7,7 @@ function get() {
   return db("artists as ar")
     .join("albums as al", "al.artist_id", "ar.artist_id")
     .join("songs as s", "s.album_id", "al.album_id")
-    .select("ar.*", "album_title", "song_title");
+    .select("ar.*", "album_title", "song_title", "s.song_id");
 }
 
 function getById(id) {
